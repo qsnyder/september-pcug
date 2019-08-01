@@ -35,3 +35,10 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# NSO specific files #
+#####################
+*.netsim
+packages/cisco-ios
+packages/cisco-nx
+packages/juniper-junos

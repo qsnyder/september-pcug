@@ -1,24 +1,37 @@
 clean: netsim-clean nso-clean
 
 # netsim targets
-netsim:
+netsim-mv:
 	ncs-netsim create-device cisco-ios ios1
 	ncs-netsim add-device cisco-nx nx1
+	ncs-netsim add-device juniper-junos j1
 	ncs-netsim start
+
+netsim-t:
+	ncs-netsim create-network cisco-ios 3 ios
 
 netsim-clean:
 	ncs-netsim stop
 	rm -rf netsim
 
+ios0_cli:
+	ncs-netsim cli-c ios0
+
 ios1_cli:
 	ncs-netsim cli-c ios1
+
+ios2_cli:
+	ncs-netsim cli-c ios2
 
 nx1_cli:
 	ncs-netsim cli-c nx1
 
+j1_cli:
+	ncs-netsim cli j1
+
 # NSO targets
 nso:
-	ncs-setup --dest .
+	ncs-setup --dest . --ned-package cisco-ios --ned-package cisco-nx --ned-package juniper-junos --netsim-dir netsim
 	ncs
 
 nso-clean:
