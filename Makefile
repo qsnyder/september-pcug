@@ -9,6 +9,7 @@ netsim-mv:
 
 netsim-t:
 	ncs-netsim create-network cisco-ios 3 ios
+	ncs-netsim start
 
 netsim-clean:
 	ncs-netsim stop

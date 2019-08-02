@@ -39,6 +39,15 @@ Thumbs.db
 # NSO specific files #
 #####################
 *.netsim
+ncs.conf
+README.ncs
+storedstate
 packages/cisco-ios
 packages/cisco-nx
 packages/juniper-junos
+logs/
+ncs-cdb/
+netsim/
+state/
+target/
+scripts/
