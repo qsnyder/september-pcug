@@ -40,11 +40,17 @@ nso-clean:
 	-@ncs --stop
 	-@rm -Rf README.ncs agentStore state.yml logs/ ncs-cdb/ ncs-java-vm.log ncs-python-vm.log ncs.conf state/ storedstate target/
 
-packages-ntp-clean:
+ntp-clean:
 	make -C packages/ntp-server/src clean
 
 compile-ntp:
-	make  packages/ntp-server/src/
+	make  -C packages/ntp-server/src
+
+loopback-ospf-clean:
+	make -C packages/loopback-ospf/src clean
+
+compile-loopback-ospf:
+	make -C packages/loopback-ospf/src
 
 reload:
 	echo "packages reload" | ncs_cli -u admin -C
