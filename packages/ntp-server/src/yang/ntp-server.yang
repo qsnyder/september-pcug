@@ -19,7 +19,6 @@ module ntp-server {
       type inet:ipv4-address;
     }
 
-    // may replace this with other ways of refering to the devices.
     leaf-list device {
       type leafref {
         path "/ncs:devices/ncs:device/ncs:name";

@@ -12,7 +12,7 @@
         <ntp xmlns="urn:ios">
           <server>
             <server-list>
-              <ip-address>{/ntp_server_ip}</ip-address>
+              <ip-address>{/ntp-server-ip}</ip-address>
               <prefer/>
             </server-list>
           </server>
