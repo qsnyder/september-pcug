@@ -17,4 +17,14 @@ Instructions are found [here](https://www.cisco.com/c/en/us/support/docs/cloud-s
 ## Makefile
 
 A makefile has been created for the convenience of running these packages within NSO.  A full discussion of makefiles is outside the scope of this README but simple inspection of the file will help in understanding what it is designed to do.  
-At its core -- running `make <target>` from something described as a `make` target, it will invoke the shell command given.  Using `makefiles` is an easy way to automate the setup and teardown of NSO architecture.
+At its core -- running `make <target>` from something described as a `make` target, it will invoke the shell command given.  Using `makefiles` is an easy way to automate the setup and teardown of NSO architecture.  Once you get used to these constructs, it will be painful to be without them.
+
+## arbitrary-yang
+
+The `arbitrary-yang` folder contains examples of non-network focused data models and exploring their constructs using `pyang` (included with NSO).  This is simply used as an illustrative purpose to show the correlation between YANG, YIN, XML, and others.
+
+## ntp-server service
+
+Simple service to illustrate the purpose of building models and templates to be deployed against devices and/or device-groups.  Level of effort much exceeds standard NSO templates from CLI, but used to show the process.
+
+### 
