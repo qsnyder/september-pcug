@@ -1,5 +1,5 @@
 <ncs-package xmlns="http://tail-f.com/ns/ncs-packages">
-  <name>loopback-ospf</name>
+  <name>subif-and-interface</name>
   <package-version>1.0</package-version>
   <description>Generated Python package</description>
   <ncs-min-version>4.7</ncs-min-version>
@@ -7,7 +7,7 @@
   <component>
     <name>main</name>
     <application>
-      <python-class-name>loopback_ospf.main.Main</python-class-name>
+      <python-class-name>subif_and_interface.main.Main</python-class-name>
     </application>
   </component>
 </ncs-package>

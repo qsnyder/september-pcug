@@ -1,7 +1,7 @@
 This is a generated Python package, made by:
 
   ncs-make-package --service-skeleton python-and-template \
-                   --component-class main.Main loopback-ospf
+                   --component-class main.Main subif-and-interface
 
 It contains a dummy YANG model which implements a minimal Service
 and an Action that doesn't really do anything useful. They are

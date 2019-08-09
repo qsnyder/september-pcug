@@ -4,9 +4,9 @@
       <collect-forward-diff>true</collect-forward-diff>
     </global-settings>
   </services>
-  <loopback-ospf xmlns="http://example.com/loopback-ospf">
+  <subif-and-interface xmlns="http://example.com/subif-and-interface">
     <name>33</name>
     <device>eth</device>
     <dummy>127.0.0.1</dummy>
-  </loopback-ospf>
+  </subif-and-interface>
 </config>

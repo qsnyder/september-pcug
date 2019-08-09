@@ -1,0 +1,65 @@
+module subif-and-interface {
+
+  namespace "http://example.com/subif-and-interface";
+  prefix subif-and-interface;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+  import tailf-common {
+    prefix tailf;
+  }
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  description
+    "Simple customer-facing service to aid in the deployment of a subif on a device";
+
+  revision 2019-08-09 {
+    description
+      "Initial revision.";
+  }
+
+  list subif-and-interface {
+    description "Simple CFS service skeleton from ncs-make-service";
+
+    key name;
+    leaf name {
+      tailf:info "Unique service identifier";
+      tailf:cli-allow-range;
+      type string;
+    }
+    
+    leaf-list device {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
+      }
+    }
+    
+    leaf interface-type {
+      tailf:info "Interface to which tail is applied";
+      type enumeration {
+        enum "Ethernet";
+        enum "FastEthernet";
+        enum "GigabitEthernet";
+      }
+    }
+    
+    leaf interface-num {
+      tailf:info "Interface number facing customer";
+      type string;
+    }
+    
+    leaf subif-num {
+      tailf:info "Subinterface number for customer tail; must match VLAN";
+      type uint16 {
+        range "1..4095";
+      }
+    }
+    
+    uses ncs:service-data;
+    ncs:servicepoint subif-and-interface-servicepoint;
+
+  }
+}

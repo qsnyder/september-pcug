@@ -17,7 +17,7 @@ class ServiceCallbacks(Service):
         vars = ncs.template.Variables()
         vars.add('DUMMY', '127.0.0.1')
         template = ncs.template.Template(service)
-        template.apply('loopback-ospf-template', vars)
+        template.apply('subif-and-interface-template', vars)
 
     # The pre_modification() and post_modification() callbacks are optional,
     # and are invoked outside FASTMAP. pre_modification() is invoked before
@@ -53,7 +53,7 @@ class Main(ncs.application.Application):
         # Service callbacks require a registration for a 'service point',
         # as specified in the corresponding data model.
         #
-        self.register_service('loopback-ospf-servicepoint', ServiceCallbacks)
+        self.register_service('subif-and-interface-servicepoint', ServiceCallbacks)
 
         # If we registered any callback(s) above, the Application class
         # took care of creating a daemon (related to the service/action point).
