@@ -30,13 +30,13 @@ module subif-and-interface {
       tailf:cli-allow-range;
       type string;
     }
-    
+
     leaf-list device {
       type leafref {
         path "/ncs:devices/ncs:device/ncs:name";
       }
     }
-    
+
     leaf interface-type {
       tailf:info "Interface to which tail is applied";
       type enumeration {
@@ -45,19 +45,19 @@ module subif-and-interface {
         enum "GigabitEthernet";
       }
     }
-    
+
     leaf interface-num {
       tailf:info "Interface number facing customer";
       type string;
     }
-    
+
     leaf subif-num {
       tailf:info "Subinterface number for customer tail; must match VLAN";
       type uint16 {
         range "1..4095";
       }
     }
-    
+
     uses ncs:service-data;
     ncs:servicepoint subif-and-interface-servicepoint;
 

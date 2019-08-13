@@ -1,20 +1,46 @@
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
-    <device>
-      <!--
-          Select the devices from some data structure in the service
-          model. In this skeleton the devices are specified in a leaf-list.
-          Select all devices in that leaf-list:
-      -->
-      <name>{/device}</name>
-      <config>
-        <!--
-            Add device-specific parameters here.
-            In this skeleton the, java code sets a variable DUMMY, use it
-            to set something on the device e.g.:
-            <ip-address-on-device>{$DUMMY}</ip-address-on-device>
-        -->
-      </config>
-    </device>
+
+    <?foreach {device}?>
+      <device>
+        <name>{device}</name>
+        <config>
+
+          <!-- IOS DEVICE TEMPLATE -->
+          <interface xmlns="urn:ios">
+            <{interface-type}>
+              <name>{interface-num}.{subif-num}</name>
+              <encapsulation>
+                <dot1Q>
+                  <vlan-id>{subif-num}</vlan-id>
+                </dot1Q>
+              </encapsulation>
+              <ip>
+                <address>
+                  <primary>
+                    <address>192.168.100.1</address>
+                    <mask>255.255.255.0</mask>
+                  </primary>
+                </address>
+              </ip>
+            </FastEthernet>
+          </interface>
+          <router xmlns="urn:ios">
+            <ospf>
+              <id>1</id>
+              <non-vrf>
+                <network>
+                  <ip>192.168.100.1</ip>
+                  <mask>0.0.0.0</mask>
+                  <area>0</area>
+                </network>
+              </non-vrf>
+            </ospf>
+          </router>
+
+
+        </config>
+      </device>
+    <?end?>
   </devices>
 </config-template>
