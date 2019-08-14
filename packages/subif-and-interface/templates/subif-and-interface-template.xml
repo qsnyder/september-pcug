@@ -6,7 +6,7 @@
         <config>
           <!-- IOS DEVICE TEMPLATE -->
           <interface xmlns="urn:ios">
-            <{interface-type}>
+            <interface>
               <name>{interface-num}.{subif-num}</name>
               <encapsulation>
                 <dot1Q>
@@ -21,7 +21,7 @@
                   </primary>
                 </address>
               </ip>
-            </{interface-type}>
+            </interface>
           </interface>
           <router xmlns="urn:ios">
             <ospf>
