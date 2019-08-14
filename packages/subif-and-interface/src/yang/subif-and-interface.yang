@@ -64,7 +64,7 @@ module subif-and-interface {
     }
 
     leaf mask {
-      tailf:info "Interface subnet mask"
+      tailf:info "Interface subnet mask";
       type ipv4-address
     }
 
