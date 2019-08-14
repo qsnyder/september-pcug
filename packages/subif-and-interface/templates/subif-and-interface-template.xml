@@ -21,8 +21,8 @@
                   </primary>
                 </address>
               </ip>
-            </interface>
-          </FastEthernet>
+            </FastEthernet>
+          </interface>
           <router xmlns="urn:ios">
             <ospf>
               <id>1</id>
