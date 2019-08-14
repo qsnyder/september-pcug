@@ -6,7 +6,7 @@
         <config>
           <!-- IOS DEVICE TEMPLATE -->
           <interface xmlns="urn:ios">
-            <interface>
+            <FastEthernet>
               <name>{interface-num}.{subif-num}</name>
               <encapsulation>
                 <dot1Q>
@@ -22,7 +22,7 @@
                 </address>
               </ip>
             </interface>
-          </interface>
+          </FastEthernet>
           <router xmlns="urn:ios">
             <ospf>
               <id>1</id>
