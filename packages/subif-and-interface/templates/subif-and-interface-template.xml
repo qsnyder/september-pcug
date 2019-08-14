@@ -2,22 +2,22 @@
   <devices xmlns="http://tail-f.com/ns/ncs">
     <?foreach {device}?>
       <device>
-        <name>{device}</name>
+        <name>{/device}</name>
         <config>
           <!-- IOS DEVICE TEMPLATE -->
           <interface xmlns="urn:ios">
             <FastEthernet>
-              <name>{interface-num}.{subif-num}</name>
+              <name>{/interface-num}.{/subif-num}</name>
               <encapsulation>
                 <dot1Q>
-                  <vlan-id>{subif-num}</vlan-id>
+                  <vlan-id>{/subif-num}</vlan-id>
                 </dot1Q>
               </encapsulation>
               <ip>
                 <address>
                   <primary>
-                    <address>{ip-address}</address>
-                    <mask>{mask}</mask>
+                    <address>{/ip-address}</address>
+                    <mask>{/mask}</mask>
                   </primary>
                 </address>
               </ip>
@@ -28,7 +28,7 @@
               <id>1</id>
               <non-vrf>
                 <network>
-                  <ip>{ip-address}</ip>
+                  <ip>{/ip-address}</ip>
                   <mask>0.0.0.0</mask>
                   <area>0</area>
                 </network>
