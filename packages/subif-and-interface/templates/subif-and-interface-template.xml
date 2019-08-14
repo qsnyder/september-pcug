@@ -1,11 +1,9 @@
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
-
     <?foreach {device}?>
       <device>
         <name>{device}</name>
         <config>
-
           <!-- IOS DEVICE TEMPLATE -->
           <interface xmlns="urn:ios">
             <{interface-type}>
@@ -23,7 +21,7 @@
                   </primary>
                 </address>
               </ip>
-            </FastEthernet>
+            </{interface-type}>
           </interface>
           <router xmlns="urn:ios">
             <ospf>
