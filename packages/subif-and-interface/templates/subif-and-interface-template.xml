@@ -18,8 +18,8 @@
               <ip>
                 <address>
                   <primary>
-                    <address>192.168.100.1</address>
-                    <mask>255.255.255.0</mask>
+                    <address>{ip-address}</address>
+                    <mask>{mask}</mask>
                   </primary>
                 </address>
               </ip>
@@ -30,15 +30,13 @@
               <id>1</id>
               <non-vrf>
                 <network>
-                  <ip>192.168.100.1</ip>
+                  <ip>{ip-address}</ip>
                   <mask>0.0.0.0</mask>
                   <area>0</area>
                 </network>
               </non-vrf>
             </ospf>
           </router>
-
-
         </config>
       </device>
     <?end?>
