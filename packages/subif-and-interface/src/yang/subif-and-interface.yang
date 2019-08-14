@@ -60,12 +60,12 @@ module subif-and-interface {
 
     leaf ip-address {
       tailf:info "Interface IP address";
-      type ipv4-address
+      type ipv4-address;
     }
 
     leaf mask {
       tailf:info "Interface subnet mask";
-      type ipv4-address
+      type ipv4-address;
     }
 
     uses ncs:service-data;
