@@ -5,6 +5,7 @@ netsim-mv:
 	ncs-netsim create-device cisco-ios ios1
 	ncs-netsim add-device cisco-nx nx1
 	ncs-netsim add-device juniper-junos j1
+	ncs-netsim add-device cisco-iosxr xr1
 	ncs-netsim start
 
 netsim-t:
@@ -30,9 +31,12 @@ nx1_cli:
 j1_cli:
 	ncs-netsim cli j1
 
+xr1_cli:
+	ncs-netsim cli-c xr1
+
 # NSO targets
 nso:
-	ncs-setup --dest . --ned-package cisco-ios --ned-package cisco-nx --ned-package juniper-junos --netsim-dir netsim
+	ncs-setup --dest . --ned-package cisco-ios --ned-package cisco-nx --ned-package juniper-junos --ned-package cisco-iosxr --netsim-dir netsim
 	ncs
 
 nso-clean:

@@ -43,6 +43,7 @@ module subif-and-interface {
         enum "Ethernet";
         enum "FastEthernet";
         enum "GigabitEthernet";
+        enum "TenGigabitEthernet";
       }
     }
 
