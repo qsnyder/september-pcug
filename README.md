@@ -7,12 +7,7 @@ While a full explanation of these packages is beyond the scope of this readme, s
 
 Download free from DevNet [here](https://developer.cisco.com/docs/nso/#!getting-nso)
 
-# Using the examples
-
-## Install NSO
-
-Installation requires either Mac or Linux PC with Java (of some version) and Apache Ant.
-Instructions are found [here](https://www.cisco.com/c/en/us/support/docs/cloud-systems-management/network-services-orchestrator/200528-Installion-of-NCS-NSO-Natively-on-a-MAC.html) for MacOS.  Apache Ant for Linux will need to be installed using your distributions included app manager or manually using Apache's [website](https://ant.apache.org/manual/install.html)
+# Repo Contents
 
 ## Makefile
 
@@ -35,4 +30,9 @@ Really a bad name for the service, as it deals with subinterfaces and routing.  
 
 This is a sample XML skeleton of data exported from Cisco VIRL to be placed in the `cisco-iosxr` NED folder such that a set of sample config can be inspected with NSO.
 
-## 
+# Using the examples
+
+## Install NSO
+
+Installation requires either Mac or Linux PC with Java (of some version) and Apache Ant.
+Instructions are found [here](https://www.cisco.com/c/en/us/support/docs/cloud-systems-management/network-services-orchestrator/200528-Installion-of-NCS-NSO-Natively-on-a-MAC.html) for MacOS.  Apache Ant for Linux will need to be installed using your distributions included app manager or manually using Apache's [website](https://ant.apache.org/manual/install.html)
