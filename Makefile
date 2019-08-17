@@ -50,11 +50,11 @@ ntp-clean:
 compile-ntp:
 	make  -C packages/ntp-server/src
 
-loopback-ospf-clean:
-	make -C packages/loopback-ospf/src clean
+subif-clean:
+	make -C packages/subif-and-interface/src clean
 
-compile-loopback-ospf:
-	make -C packages/loopback-ospf/src
+compile-subif:
+	make -C packages/subif-and-interface/src
 
 reload:
 	echo "packages reload" | ncs_cli -u admin -C
