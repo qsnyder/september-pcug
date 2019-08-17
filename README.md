@@ -27,4 +27,12 @@ The `arbitrary-yang` folder contains examples of non-network focused data models
 
 Simple service to illustrate the purpose of building models and templates to be deployed against devices and/or device-groups.  Level of effort much exceeds standard NSO templates from CLI, but used to show the process.
 
-### 
+## subif-and-interface
+
+Really a bad name for the service, as it deals with subinterfaces and routing.  Essentially, this is an example of a customer facing service that can instantiate a subinterface on multiple device types (IOS, IOS-XR) using a provided IP address, mask, and subif tag and automatically create the appropriate routing protocol entry.  The idea is for this service to be available over a web API that can be invoked by customers or front-line provisioning teams -- meaning that NSO would never need to be directly interacted with.
+
+## xr-skeleton-data
+
+This is a sample XML skeleton of data exported from Cisco VIRL to be placed in the `cisco-iosxr` NED folder such that a set of sample config can be inspected with NSO.
+
+## 
