@@ -1,11 +1,11 @@
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
-    <?foreach {device}?>
       <device>
         <name>{/device}</name>
         <config>
           <!-- IOS DEVICE TEMPLATE -->
           <interface xmlns="urn:ios">
+            <?if {starts-with(/interface-type,'FastEthernet')}?>
             <FastEthernet>
               <name>{/interface-num}.{/subif-num}</name>
               <encapsulation>
@@ -22,6 +22,25 @@
                 </address>
               </ip>
             </FastEthernet>
+            <?end?>
+            <?if {starts-with(/interface-type,'GigabitEthernet')}?>
+            <GigabitEthernet>
+              <name>{/interface-num}.{/subif-num}</name>
+              <encapsulation>
+                <dot1Q>
+                  <vlan-id>{/subif-num}</vlan-id>
+                </dot1Q>
+              </encapsulation>
+              <ip>
+                <address>
+                  <primary>
+                    <address>{/ip-address}</address>
+                    <mask>{/mask}</mask>
+                  </primary>
+                </address>
+              </ip>
+            </GigabitEthernet>
+            <?end?>
           </interface>
           <router xmlns="urn:ios">
             <ospf>
@@ -37,6 +56,5 @@
           </router>
         </config>
       </device>
-    <?end?>
   </devices>
 </config-template>

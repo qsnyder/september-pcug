@@ -45,6 +45,7 @@ storedstate
 packages/cisco-ios
 packages/cisco-nx
 packages/juniper-junos
+packages/cisco-iosxr
 logs/
 ncs-cdb/
 netsim/
