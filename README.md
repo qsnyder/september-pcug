@@ -1,3 +1,20 @@
+* [september-pcug](#september-pcug)
+* [Getting NSO](#getting-nso)
+* [Repo Contents](#repo-contents)
+   * [Makefile](#makefile)
+   * [arbitrary-yang](#arbitrary-yang)
+   * [xr-skeleton-data](#xr-skeleton-data)
+   * [ntp-server service](#ntp-server-service)
+   * [subif-and-interface](#subif-and-interface)
+* [Using the examples](#using-the-examples)
+   * [Install NSO](#install-nso)
+   * [Compile packages](#compile-packages)
+   * [Invoke ncs-netsim](#invoke-ncs-netsim)
+   * [Starting NSO](#starting-nso)
+   * [Using the packages](#using-the-packages)
+      * [A Note About Template Modification](#a-note-about-template-modification)
+   * [Cleaning up](#cleaning-up)
+
 # september-pcug
 
 The purpose of this document is to provide code examples for the September 2019 Phoenix Cisco Users Group meeting focused on network automation using Cisco Network Service Orchestrator (NSO).
