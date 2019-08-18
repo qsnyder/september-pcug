@@ -1,4 +1,8 @@
-* [september-pcug](#september-pcug)
+# september-pcug
+
+The purpose of this document is to provide code examples for the September 2019 Phoenix Cisco Users Group meeting focused on network automation using Cisco Network Service Orchestrator (NSO).
+While a full explanation of these packages is beyond the scope of this readme, simple walkthroughs will be provided to play with the examples.  
+
 * [Getting NSO](#getting-nso)
 * [Repo Contents](#repo-contents)
    * [Makefile](#makefile)
@@ -14,11 +18,6 @@
    * [Using the packages](#using-the-packages)
       * [A Note About Template Modification](#a-note-about-template-modification)
    * [Cleaning up](#cleaning-up)
-
-# september-pcug
-
-The purpose of this document is to provide code examples for the September 2019 Phoenix Cisco Users Group meeting focused on network automation using Cisco Network Service Orchestrator (NSO).
-While a full explanation of these packages is beyond the scope of this readme, simple walkthroughs will be provided to play with the examples.  
 
 # Getting NSO
 
