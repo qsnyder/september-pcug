@@ -40,7 +40,6 @@ module subif-and-interface {
     leaf interface-type {
       tailf:info "Interface to which tail is applied";
       type enumeration {
-        enum "Ethernet";
         enum "FastEthernet";
         enum "GigabitEthernet";
         enum "TenGigabitEthernet";
