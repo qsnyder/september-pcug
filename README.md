@@ -33,12 +33,12 @@ At its core -- running `make <target>` from something described as a `make` targ
 ## arbitrary-yang
 
 The `arbitrary-yang` folder contains examples of non-network focused data models and exploring their constructs using `pyang` (included with NSO).  This is simply used as an illustrative purpose to show the correlation between YANG, YIN, XML, and others.
-The [README](https://github.com/qsnyder/september-pcug/tree/master/arbitrary-yang) will provide more details in interacting with the models and `pyang` output
+The [README](https://github.com/qsnyder/september-pcug/tree/master/arbitrary-yang) will provide more details in interacting with the models and `pyang` output.
 
 ## xr-skeleton-data
 
 This is a sample XML skeleton of data exported from Cisco VIRL to be placed in the `cisco-iosxr` NED folder such that a set of sample config can be inspected with NSO.
-Installation and usage instructions can be found in the [README](https://github.com/qsnyder/september-pcug/tree/master/xr-skeleton-data)
+Installation and usage instructions can be found in the [README](https://github.com/qsnyder/september-pcug/tree/master/xr-skeleton-data).
 
 ## ntp-server service
 
@@ -53,7 +53,7 @@ Really a bad name for the service, as it deals with subinterfaces and routing.  
 ## Install NSO
 
 Installation requires either Mac or Linux PC with Java (of some version) and Apache Ant.
-Instructions are found [here](https://www.cisco.com/c/en/us/support/docs/cloud-systems-management/network-services-orchestrator/200528-Installion-of-NCS-NSO-Natively-on-a-MAC.html) for MacOS.  Apache Ant for Linux will need to be installed using your distributions included app manager or manually using Apache's [website](https://ant.apache.org/manual/install.html)
+Instructions are found [here](https://www.cisco.com/c/en/us/support/docs/cloud-systems-management/network-services-orchestrator/200528-Installion-of-NCS-NSO-Natively-on-a-MAC.html) for MacOS.  Apache Ant for Linux will need to be installed using your distributions included app manager or manually using Apache's [website](https://ant.apache.org/manual/install.html).
 
 ## Compile packages
 
@@ -75,7 +75,7 @@ Typically, only a single netsim instance can be invoked within a project directo
 
 ## Starting NSO
 
-Much like every other aspect of the project, NSO/NCS can be started and run from the `makefile`.  For the first run, the folder structure will need to be setup. This can be done by running `make nso`, which will create setup all required files/folders, tell NSO to use the `./netsim` folder, and make symlinks to all NEDs that will be used within the project.  After `ncs-setup` has completed, two `make` commands are available, depending on desired CLI of NSO
+Much like every other aspect of the project, NSO/NCS can be started and run from the `makefile`.  For the first run, the folder structure will need to be setup. This can be done by running `make nso`, which will create setup all required files/folders, tell NSO to use the `./netsim` folder, and make symlinks to all NEDs that will be used within the project.  After `ncs-setup` has completed, two `make` commands are available, depending on desired CLI of NSO.
 - `make cli-c` | Cisco command style
 - `make cli-j` | Juniper command style
 
@@ -85,7 +85,7 @@ Packages have been compiled with a fairly coherent set of command "help" instruc
 
 ### A Note About Template Modification
 
-As stated above, any change to the package model (YANG) will need to be compiled.  However, it may be beneficial to the user to modify the template structure located within each package.  This does not require a full recompile, but if any changes are made to the underlying template, the packages will need to be reloaded inside of NSO using the `packages reload` command from the NSO prompt
+As stated above, any change to the package model (YANG) will need to be compiled.  However, it may be beneficial to the user to modify the template structure located within each package.  This does not require a full recompile, but if any changes are made to the underlying template, the packages will need to be reloaded inside of NSO using the `packages reload` command from the NSO prompt.
 
 ## Cleaning up
 
