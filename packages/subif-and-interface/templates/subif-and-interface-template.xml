@@ -62,11 +62,34 @@
                 <GigabitEthernet>
                   <id>{/interface-num}.{/subif-num}</id>
                   <description>{/name}-SUBIF</description>
+                  <ipv4>
+                    <address>
+                      <ip>{ip-address}</ip>
+                      <mask>{/mask}</mask>
+                    </address>
+                  </ipv4>
                   <dot1q>
-                    <vlan>{/subif-num}}</vlan>
+                    <vlan>{/subif-num}</vlan>
                   </dot1q>
                 </GigabitEthernet>
               </GigabitEthernet-subinterface>
+            <?end?>
+            <?if {starts-with(/interface-type,'TenGigE')}?>
+              <TenGigE-subinterface>
+                <TenGigE>
+                  <id>{/interface-num}.{/subif-num}</id>
+                  <description>{/name}-SUBIF</description>
+                  <ipv4>
+                    <address>
+                      <ip>{ip-address}</ip>
+                      <mask>{/mask}</mask>
+                    </address>
+                  </ipv4>
+                  <dot1q>
+                    <vlan>{/subif-num}</vlan>
+                  </dot1q>
+                </TenGigE>
+              </TenGigE-subinterface>
             <?end?>
           </interface>
           <router xmlns="http://tail-f.com/ned/cisco-ios-xr">
@@ -83,5 +106,6 @@
           </router>
         </config>
       </device>
+    <?end?>
   </devices>
 </config-template>
