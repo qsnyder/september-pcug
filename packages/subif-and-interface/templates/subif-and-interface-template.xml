@@ -64,7 +64,7 @@
                   <description>{/name}-SUBIF</description>
                   <ipv4>
                     <address>
-                      <ip>{ip-address}</ip>
+                      <ip>{/ip-address}</ip>
                       <mask>{/mask}</mask>
                     </address>
                   </ipv4>
@@ -81,7 +81,7 @@
                   <description>{/name}-SUBIF</description>
                   <ipv4>
                     <address>
-                      <ip>{ip-address}</ip>
+                      <ip>{/ip-address}</ip>
                       <mask>{/mask}</mask>
                     </address>
                   </ipv4>
