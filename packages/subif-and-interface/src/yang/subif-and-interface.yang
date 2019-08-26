@@ -44,7 +44,7 @@ module subif-and-interface {
       type enumeration {
         enum "FastEthernet";
         enum "GigabitEthernet";
-        enum "TenGigabitEthernet";
+        enum "TenGigE";
       }
     }
 

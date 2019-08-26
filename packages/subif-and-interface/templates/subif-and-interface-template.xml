@@ -1,5 +1,6 @@
 <config-template xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
+    <?foreach {device}?>
       <device>
         <name>{/device}</name>
         <config>
@@ -54,7 +55,57 @@
               </non-vrf>
             </ospf>
           </router>
+          <!-- XR DEVICE TEMPLATE -->
+          <interface xmlns="http://tail-f.com/ned/cisco-ios-xr">
+            <?if {starts-with(/interface-type,'GigabitEthernet')}?>
+              <GigabitEthernet-subinterface>
+                <GigabitEthernet>
+                  <id>{/interface-num}.{/subif-num}</id>
+                  <description>{/name}-SUBIF</description>
+                  <ipv4>
+                    <address>
+                      <ip>{/ip-address}</ip>
+                      <mask>{/mask}</mask>
+                    </address>
+                  </ipv4>
+                  <dot1q>
+                    <vlan>{/subif-num}</vlan>
+                  </dot1q>
+                </GigabitEthernet>
+              </GigabitEthernet-subinterface>
+            <?end?>
+            <?if {starts-with(/interface-type,'TenGigE')}?>
+              <TenGigE-subinterface>
+                <TenGigE>
+                  <id>{/interface-num}.{/subif-num}</id>
+                  <description>{/name}-SUBIF</description>
+                  <ipv4>
+                    <address>
+                      <ip>{/ip-address}</ip>
+                      <mask>{/mask}</mask>
+                    </address>
+                  </ipv4>
+                  <dot1q>
+                    <vlan>{/subif-num}</vlan>
+                  </dot1q>
+                </TenGigE>
+              </TenGigE-subinterface>
+            <?end?>
+          </interface>
+          <router xmlns="http://tail-f.com/ned/cisco-ios-xr">
+            <ospf>
+              <name>1</name>
+              <area>
+                <id>0</id>
+                <interface>
+                  <name>{/interface-type}{/interface-num}.{/subif-num}</name>
+                  <cost>1</cost>
+                </interface>
+              </area>
+            </ospf>
+          </router>
         </config>
       </device>
+    <?end?>
   </devices>
 </config-template>
