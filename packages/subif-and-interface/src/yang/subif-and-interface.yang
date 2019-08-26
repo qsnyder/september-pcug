@@ -31,16 +31,17 @@ module subif-and-interface {
       type string;
     }
 
-    leaf-list device {
-      type leafref {
-        path "/ncs:devices/ncs:device/ncs:name";
+    list device {
+      key device;
+      leaf device {
+        type leafref {
+          path /ncs:devices/ncs:device/ncs:name;
+        }
       }
-    }
 
     leaf interface-type {
       tailf:info "Interface to which tail is applied";
       type enumeration {
-        enum "Ethernet";
         enum "FastEthernet";
         enum "GigabitEthernet";
         enum "TenGigabitEthernet";
@@ -68,6 +69,7 @@ module subif-and-interface {
       tailf:info "Interface subnet mask";
       type inet:ipv4-address;
     }
+  }
 
     uses ncs:service-data;
     ncs:servicepoint subif-and-interface-servicepoint;
