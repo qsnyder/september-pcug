@@ -22,35 +22,34 @@ module subif-and-interface {
   }
 
   list subif-and-interface {
+    tailf:info "Manage customer subinterfaces";
     description "Simple CFS service skeleton from ncs-make-service";
 
     key name;
     leaf name {
-      tailf:info "Unique service identifier";
+      tailf:info "Unique customer name";
       tailf:cli-allow-range;
       type string;
     }
 
-    list device {
-      key device;
-      leaf device {
-        type leafref {
-          path /ncs:devices/ncs:device/ncs:name;
+    leaf-list device {
+      type leafref {
+        path "/ncs:devices/ncs:device/ncs:name";
         }
       }
 
-    leaf interface-type {
-      tailf:info "Interface to which tail is applied";
-      type enumeration {
-        enum "FastEthernet";
-        enum "GigabitEthernet";
-        enum "TenGigE";
-      }
-    }
+//    leaf interface-type {
+//      tailf:info "Interface to which tail is applied";
+//      type enumeration {
+//        enum "FastEthernet";
+//        enum "GigabitEthernet";
+//        enum "TenGigE";
+//      }
+//    }
 
     leaf interface-num {
       tailf:info "Interface number facing customer";
-      type string;
+        type string;
     }
 
     leaf subif-num {
@@ -69,7 +68,6 @@ module subif-and-interface {
       tailf:info "Interface subnet mask";
       type inet:ipv4-address;
     }
-  }
 
     uses ncs:service-data;
     ncs:servicepoint subif-and-interface-servicepoint;

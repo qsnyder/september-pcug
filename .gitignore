@@ -36,6 +36,12 @@
 ehthumbs.db
 Thumbs.db
 
+# Ansible Shenanigans #
+########################
+*.retry
+hosts
+
+
 # NSO specific files #
 #####################
 *.netsim
@@ -52,3 +58,7 @@ netsim/
 state/
 target/
 scripts/
+
+# Excluding working files #
+###########################
+scratch.xml
