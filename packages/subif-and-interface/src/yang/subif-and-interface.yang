@@ -21,6 +21,8 @@ module subif-and-interface {
       "Initial revision.";
   }
 
+  augment /ncs:services{
+
   list subif-and-interface {
     tailf:info "Manage customer subinterfaces";
     description "Simple CFS service skeleton from ncs-make-service";
@@ -70,7 +72,7 @@ module subif-and-interface {
     }
 
     uses ncs:service-data;
-    ncs:servicepoint subif-and-interface-servicepoint;
+    ncs:servicepoint "subif-and-interface";
 
   }
 }
