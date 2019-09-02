@@ -9,7 +9,7 @@ While a full explanation of these packages is beyond the scope of this readme, s
    * [arbitrary-yang](#arbitrary-yang)
    * [xr-skeleton-data](#xr-skeleton-data)
    * [ntp-server service](#ntp-server-service)
-   * [subif-and-interface](#subif-and-interface)
+   * [subif-and-routing](#subif-and-routing)
 * [Using the examples](#using-the-examples)
    * [Install NSO](#install-nso)
    * [Compile packages](#compile-packages)
@@ -44,9 +44,9 @@ Installation and usage instructions can be found in the [README](https://github.
 
 Simple service to illustrate the purpose of building models and templates to be deployed against devices and/or device-groups.  Level of effort much exceeds standard NSO templates from CLI, but used to show the process.
 
-## subif-and-interface
+## subif-and-routing
 
-Really a bad name for the service, as it deals with subinterfaces and routing.  Essentially, this is an example of a customer facing service that can instantiate a subinterface on multiple device types (IOS, IOS-XR) using a provided IP address, mask, and subif tag and automatically create the appropriate routing protocol entry.  The idea is for this service to be available over a web API that can be invoked by customers or front-line provisioning teams -- meaning that NSO would never need to be directly interacted with.
+A simple service dealing with subinterfaces and routing.  Essentially, this is an example of a customer facing service that can instantiate a subinterface on multiple device types (IOS, IOS-XR) using a provided IP address, and subif tag and automatically create the appropriate routing protocol entry.  The idea is for this service to be available over a web API that can be invoked by customers or front-line provisioning teams -- meaning that NSO would never need to be directly interacted with.
 
 # Using the examples
 
