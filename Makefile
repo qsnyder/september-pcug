@@ -2,10 +2,9 @@ clean: netsim-clean nso-clean
 
 # netsim targets
 netsim-mv:
-	ncs-netsim create-device cisco-ios ios1
-	ncs-netsim add-device cisco-nx nx1
-	ncs-netsim add-device juniper-junos j1
-	ncs-netsim add-device cisco-iosxr xr1
+	ncs-netsim create-device cisco-ios ios0
+	ncs-netsim add-device cisco-nx nx0
+	ncs-netsim add-device cisco-iosxr xr0
 	ncs-netsim start
 
 netsim-t:
@@ -25,14 +24,11 @@ ios1_cli:
 ios2_cli:
 	ncs-netsim cli-c ios2
 
-nx1_cli:
-	ncs-netsim cli-c nx1
+nx0_cli:
+	ncs-netsim cli-c nx0
 
-j1_cli:
-	ncs-netsim cli j1
-
-xr1_cli:
-	ncs-netsim cli-c xr1
+xr0_cli:
+	ncs-netsim cli-c xr0
 
 # NSO targets
 nso:
@@ -51,10 +47,10 @@ compile-ntp:
 	make  -C packages/ntp-server/src
 
 subif-clean:
-	make -C packages/subif-and-interface/src clean
+	make -C packages/subif-and-routing/src clean
 
 compile-subif:
-	make -C packages/subif-and-interface/src
+	make -C packages/subif-and-routing/src
 
 reload:
 	echo "packages reload" | ncs_cli -u admin -C

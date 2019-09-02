@@ -1,20 +1,103 @@
 <config-template xmlns="http://tail-f.com/ns/config/1.0"
                  servicepoint="subif-and-routing">
   <devices xmlns="http://tail-f.com/ns/ncs">
-    <device>
-      <!--
-          Select the devices from some data structure in the service
-          model. In this skeleton the devices are specified in a leaf-list.
-          Select all devices in that leaf-list:
-      -->
-      <name>{/device}</name>
+    <device foreach="{/device}">
+      <name>{device-name}</name>
       <config>
-        <!--
-            Add device-specific parameters here.
-            In this skeleton the service has a leaf "dummy"; use that
-            to set something on the device e.g.:
-            <ip-address-on-device>{/dummy}</ip-address-on-device>
-        -->
+        <!-- IOS DEVICE TEMPLATE -->
+        <interface xmlns="urn:ios" foreach="{interface}">
+          <FastEthernet when="{interface-type='FastEthernet'}">
+            <name>{interface-num}.{/subif-num}</name>
+            <description>{/cust-name}-VL{/subif-num}-NSO-Subif</description>
+            <encapsulation>
+              <dot1Q>
+                <vlan-id>{/subif-num}</vlan-id>
+              </dot1Q>
+            </encapsulation>
+            <ip>
+              <address>
+                <primary>
+                  <address>{ip-address}</address>
+                  <mask>255.255.255.252</mask>
+                </primary>
+              </address>
+            </ip>
+          </FastEthernet>
+          <GigabitEthernet when="{interface-type='GigabitEthernet'}">
+            <name>{interface-num}.{/subif-num}</name>
+            <description>{/cust-name}-VL{/subif-num}-NSO-Subif</description>
+            <encapsulation>
+              <dot1Q>
+                <vlan-id>{/subif-num}</vlan-id>
+              </dot1Q>
+            </encapsulation>
+            <ip>
+              <address>
+                <primary>
+                  <address>{ip-address}</address>
+                  <mask>255.255.255.252</mask>
+                </primary>
+              </address>
+            </ip>
+          </GigabitEthernet>
+        </interface>
+        <router xmlns="urn:ios">
+          <ospf>
+            <id>1</id>
+            <non-vrf>
+              <network>
+                <ip>{interface/ip-address}</ip>
+                <mask>0.0.0.0</mask>
+                <area>0</area>
+              </network>
+            </non-vrf>
+          </ospf>
+        </router>
+        <!-- XR DEVICE TEMPLATE -->
+        <interface xmlns="http://tail-f.com/ned/cisco-ios-xr" foreach="{interface}">
+          <GigabitEthernet-subinterface when="{interface-type='GigabitEthernet'}">
+            <GigabitEthernet>
+              <id>{interface-num}.{/subif-num}</id>
+              <description>{/cust-name}-VL{/subif-num}-NSO-Subif</description>
+              <ipv4>
+                <address>
+                  <ip>{ip-address}</ip>
+                  <mask>255.255.255.252</mask>
+                </address>
+              </ipv4>
+              <dot1q>
+                <vlan>{/subif-num}</vlan>
+              </dot1q>
+            </GigabitEthernet>
+          </GigabitEthernet-subinterface>
+          <TenGigE-subinterface when="{interface-type='TenGigE'}">
+            <TenGigE>
+              <id>{interface-num}.{/subif-num}</id>
+              <description>{/cust-name}-VL{/subif-num}-NSO-Subif</description>
+              <ipv4>
+                <address>
+                  <ip>{ip-address}</ip>
+                  <mask>255.255.255.252</mask>
+                </address>
+              </ipv4>
+              <dot1q>
+                <vlan>{/subif-num}</vlan>
+              </dot1q>
+            </TenGigE>
+          </TenGigE-subinterface>
+        </interface>
+        <router xmlns="http://tail-f.com/ned/cisco-ios-xr">
+          <ospf>
+            <name>1</name>
+            <area>
+              <id>0</id>
+              <interface>
+                <name>{interface/interface-type}{interface/interface-num}.{/subif-num}</name>
+                <cost>1</cost>
+              </interface>
+            </area>
+          </ospf>
+        </router>
       </config>
     </device>
   </devices>
