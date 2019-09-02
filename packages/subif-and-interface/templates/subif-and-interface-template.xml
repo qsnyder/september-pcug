@@ -1,4 +1,4 @@
-<config-template xmlns="http://tail-f.com/ns/config/1.0">
+<config-template xmlns="http://tail-f.com/ns/config/1.0" servicepoint="subif-and-interface">
   <devices xmlns="http://tail-f.com/ns/ncs">
       <device>
         <name>{device}</name>

@@ -13,9 +13,9 @@
         username: "admin"
         password: "admin"
         data:
-          subif-and-interface:subif-and-interface:
-          - name: CustB
-            device: "ios1"
+          ncs:services/subif-and-interface:subif-and-interface:
+          - name: CustC
+            device: ios1
             interface-num: 1/3
             subif-num: 150
             ip-address: 10.10.150.1

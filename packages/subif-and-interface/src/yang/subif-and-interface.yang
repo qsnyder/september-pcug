@@ -21,7 +21,7 @@ module subif-and-interface {
       "Initial revision.";
   }
 
-  augment /ncs:services{
+  augment /ncs:services {
 
   list subif-and-interface {
     tailf:info "Manage customer subinterfaces";
@@ -75,4 +75,5 @@ module subif-and-interface {
     ncs:servicepoint "subif-and-interface";
 
   }
+}
 }

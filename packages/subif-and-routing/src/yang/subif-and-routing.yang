@@ -1,0 +1,77 @@
+module subif-and-routing {
+  namespace "http://com/example/subifandrouting";
+  prefix subif-and-routing;
+
+  import ietf-inet-types {
+    prefix inet;
+  }
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  import tailf-ncs {
+    prefix ncs;
+  }
+
+  description
+    "Simple customer-facing service to aid in the deployment of a subif on a device";
+
+  revision 2019-08-31 {
+    description
+      "Initial revision.";
+  }
+
+  list subif-and-routing {
+    tailf:info "Manage customer subinterfaces";
+    description "Simple CFS service skeleton from ncs-make-service";
+    key "cust-name subif-num";
+    uses ncs:service-data;
+    ncs:servicepoint "subif-and-routing";
+
+    leaf cust-name {
+      tailf:info "Unique customer name";
+      type string;
+    }
+
+    leaf subif-num {
+      tailf:info "Dot1Q VLAN tag number";
+      type uint16 {
+        range "1..4095";
+      }
+    }
+
+    list device {
+      key device-name;
+
+      leaf device-name {
+        type leafref {
+          path "/ncs:devices/ncs:device/ncs:name";
+        }
+      }
+
+      list interface {
+        key "interface-type interface-num ip-address";
+
+        leaf interface-type {
+          tailf:info "Physical interface speed";
+          type enumeration {
+            enum "FastEthernet";
+            enum "GigabitEthernet";
+            enum "TenGigE";
+          }
+        }
+
+        leaf interface-num {
+          tailf:info "Customer physical interface";
+          type string;
+        }
+
+        leaf ip-address {
+          tailf:info "Interface IP address";
+          type inet:ipv4-address;
+        }
+      }
+    }
+  }
+}
