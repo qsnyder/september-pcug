@@ -7,7 +7,7 @@
 
   tasks:
 
-    - name: Configure CustC tail
+    - name: Configure CustB tail
       nso_config:
         url: http://localhost:8080/jsonrpc
         username: "admin"
